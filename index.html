@@ -3,41 +3,353 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>djuD</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: block;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, -apple-system, sans-serif;
+            padding: 0px;
+            color: #000000;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        #p5_loading {
+            display: none;
+        }
+
+        canvas {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            width: 100%;
+    max-width: 100vw;
+    height: 100vh;
+    text-align: center;
+    padding: 20px 0px 20px 20px;
+    position: absolute; /* Changé de relative à absolute */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    overflow-y: auto;
+    box-sizing: border-box;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 24px auto;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .description {
+            margin-bottom: 32px;
+            line-height: 1.5;
+            font-size: 1.1em;
+            padding: 0 0px;
+            border-radius: 20px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+
+        }
+
+        .links {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(140px, 140px));
+            gap: 16px;
+            justify-content: center;
+            width: 100%;
+            padding: 0 28px 0 0;;
+            box-sizing: border-box;
+            
+        }
+
+        @media (max-width: 600px) {
+            .links {
+                grid-template-columns: minmax(140px, 200px);
+            }
+        }
+
+        .link {
+            background-color: #ffffff;
+            padding: 12px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #000000;
+            font-weight: 500;
+            display: grid;
+            grid-template-columns: 24px 1fr;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .link:hover {
+            background-color: #ff0000;
+            color: #ffffff;
+        }
+
+        .link i {
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .link span {
+            font-size: 1em;
+        }
+
+        .container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.container {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.1);
+}
+
+/* Garder les styles webkit séparés */
+.container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+    </style>
+    <script data-goatcounter="https://4bstr.github.io.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        <img src="/DA_Logo_resized.png" alt="Logo" class="logo">
+        <p class="description">
+            <b>"djuD" - Solo Dev on <i>Cosmic Crawl</i><br> 
+            Technical Designer UE5 & PCG<br> 
+            @ Behaviour / CloudChamber / Massive / Ubisoft<br>
+            TTRPG & Photo to escape  </b>      
+        </p>
+        <div class="links">
+            <a href="mailto:4bstr@pm.me" class="link" data-goatcounter-click="email">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
+            </a>
+            <a href="https://discord.gg/3S7XAHSC" class="link" data-goatcounter-click="discord">
+                <i class="fab fa-discord"></i>
+                <span>Discord</span>
+            </a>
+            <a href="https://abstr.itch.io/" class="link" data-goatcounter-click="itch">
+                <i class="fas fa-gamepad"></i>
+                <span>Itch.io</span>
+            </a>
+            <a href="https://abstr.substack.com/" class="link" data-goatcounter-click="substack">
+                <i class="fas fa-newspaper"></i>
+                <span>Substack</span>
+            </a>
+            <a href="https://www.instagram.com/dsign_abstr/" class="link" data-goatcounter-click="instagram">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://x.com/Dsign_Abstr" class="link" data-goatcounter-click="twitter">
+                <i class="fab fa-x-twitter"></i>
+                <span>Twitter</span>
+            </a>
+            <a href="https://bsky.app/profile/djudi.bsky.social" class="link" data-goatcounter-click="bluesky">
+                <i class="fas fa-cloud"></i>
+                <span>Bluesky</span>
+            </a>
+            <a href="https://www.threads.net/@dsign_abstr" class="link" data-goatcounter-click="threads">
+                <i class="fab fa-threads"></i>
+                <span>Threads</span>
+            </a>
+            <a href="https://www.youtube.com/@dsign_abstr/featured" class="link" data-goatcounter-click="youtube">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube</span>
+            </a>
+            <a href="https://www.tiktok.com/@dsign_abstr" class="link" data-goatcounter-click="tiktok">
+                <i class="fab fa-tiktok"></i>
+                <span>TikTok</span>
+            </a>
+            <a href="https://unsplash.com/@djud" class="link" data-goatcounter-click="unsplash">
+                <i class="fas fa-camera"></i>
+                <span>Unsplash</span>
+            </a>
+            <a href="https://cara.app/djud" class="link" data-goatcounter-click="cara">
+                <i class="fas fa-cube"></i>
+                <span>Cara</span>
+            </a>
+        </div>
+    </div>
+    <script>
+        function setup() {
+            let cnv;
+            rectMode(CORNERS);
+            colorMode(HSB, 100);
+            cnv = createCanvas(windowWidth, windowHeight);
+            main();
+            cnv.style('z-index', '0');
+        }
+        function mousePressed() {
+    main();
+    return false;
+}
 
-    <main>
-        <section id="home">
-            <h1>Welcome to My Website</h1>
-            <p>This is a simple website template you can build upon.</p>
-        </section>
+        function windowResized() {
+  center = createVector(windowWidth / 2, windowHeight / 2);
+  resizeCanvas(windowWidth, windowHeight);
+  main();
+}
 
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Add your content here.</p>
-        </section>
+function main() {
+  background(color(random(100), 40, 0, 100));
+  let row = Math.floor(windowHeight / 300);
+  let col = Math.floor(windowWidth / 300);
+  let cellScale;
+  if (windowWidth / col > windowHeight / row) {
+    cellScale = windowHeight / row;
+  } else {
+    cellScale = windowWidth / col;
+  }
+  let cellCenter;
 
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Get in touch with us.</p>
-        </section>
-    </main>
+  for (let r = 0; r < row; r++) {
+    for (let c = 0; c < col; c++) {
+      cellCenter = createVector(
+        cellScale * c + cellScale / 2,
+        cellScale * r + cellScale / 2
+      );
+      flowerGen(cellCenter, cellScale);
+    }
+  }
+}
 
-    <footer>
-        <p>&copy; 2024 My Website. All rights reserved.</p>
-    </footer>
+function flowerGen(cellCenter, cellScale) {
+  let colorPalette = random([0, 1, 2, 3, 4, 5, 6]);
+  let shadowX = random(2);
+  let shadowY = random(2);
+  let density = random(0.6, 0.9);
+  let circular = random([true]);
 
-    <script src="script.js"></script>
+  stroke(0);
+  let tri;
+
+  for (let i = 0; i < cellScale / 2; i++) {
+    strokeWeight(i / cellScale / 2);
+    if (random() > density) {
+      if (circular) {
+        tri = genTriangleInCircle(
+          cellCenter.x,
+          cellCenter.y,
+          cellScale / 2 - i
+        );
+      } else {
+        tri = genTriangleInRect(
+          cellCenter.x - cellScale / 2 + i,
+          cellCenter.y - cellScale / 2 + i,
+          cellCenter.x + cellScale / 2 - i,
+          cellCenter.y + cellScale / 2 - i
+        );
+      }
+      if (shadowX != 0 || shadowY != 0) {
+        fill(color(0, 0, 0, i));
+        triangle(
+          tri[0].x + shadowX,
+          tri[0].y + shadowY,
+          tri[1].x + shadowX,
+          tri[1].y + shadowY,
+          tri[2].x + shadowX,
+          tri[2].y + shadowY
+        );
+      }
+      fill(color(pickColor(colorPalette), 100, i, i));
+      triangle(tri[0].x, tri[0].y, tri[1].x, tri[1].y, tri[2].x, tri[2].y);
+    }
+  }
+}
+
+function pickColor(palette) {
+  switch (palette) {
+    case 0:
+      return random(0, 25);
+    case 1:
+      return random(25, 50);
+    case 2:
+      return random(50, 75);
+    case 3:
+      return random(75, 100);
+    case 4:
+      return random(0, 50);
+    case 5:
+      return random(50, 100);
+    default:
+      return random(0, 100);
+  }
+}
+
+function genTriangleInRect(minX, minY, maxX, maxY) {
+  let a = createVector(minX, random(minY, maxY));
+  let b = createVector(maxX, random(minY, maxY));
+  let c = createVector(random(minX, maxX), minY);
+  let d = createVector(random(minX, maxX), maxY);
+  switch (random([0, 1, 2, 3])) {
+    case 0:
+      return [a, b, c];
+    case 1:
+      return [a, b, d];
+    case 2:
+      return [a, c, d];
+    default:
+      return [b, c, d];
+  }
+}
+
+function genTriangleInCircle(x, y, radius) {
+  var a = getPointOnCircle(x, y, radius);
+  var b = getPointOnCircle(x, y, radius);
+  var c = getPointOnCircle(x, y, radius);
+  return [a, b, c];
+}
+
+function getPointOnCircle(x, y, radius) {
+  var angle = random() * Math.PI * 2;
+  return createVector(
+    Math.cos(angle) * radius + x,
+    Math.sin(angle) * radius + y
+  );
+}
+
+
+    </script>
 </body>
 </html>
