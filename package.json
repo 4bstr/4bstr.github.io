@@ -1,0 +1,12 @@
+{
+  "name": "simple-links",
+  "version": "1.0.0",
+  "description": "Simple webpage with links",
+  "scripts": {
+    "start": "npx http-server -p 3000",
+    "dev": "npx http-server -p 3000"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
