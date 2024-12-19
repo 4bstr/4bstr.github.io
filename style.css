@@ -17,6 +17,8 @@ canvas {
 a {
     color: #ff0000;
     text-decoration: none; /* This removes the underline */
+    text-shadow: -1px 1px rgb(0, 0, 0);
+    font-family: "Aladin", serif;
 }
 
 .pattern {
@@ -61,8 +63,8 @@ a {
     padding: 0 0px;
     border-radius: 20px;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-
+    text-shadow: -1px 1px rgb(0, 0, 0);
+    font-family: "Amarante", serif;
 }
 
 .links {
