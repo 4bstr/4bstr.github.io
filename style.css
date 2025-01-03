@@ -43,6 +43,7 @@ a {
     text-align: center;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
+    background-color: #000000a1;
 }
 
 .logo {
@@ -57,7 +58,7 @@ a {
 }
 
 .description {
-    margin-bottom: 32px;
+    margin-bottom: 0px;
     line-height: 1.5;
     font-size: 1.1em;
     padding: 0 0px;
