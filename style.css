@@ -18,7 +18,6 @@ a {
     color: #ff0000;
     text-decoration: none; /* This removes the underline */
     text-shadow: -1px 1px rgb(0, 0, 0);
-    font-family: "Aladin", serif;
 }
 
 .pattern {
@@ -43,7 +42,8 @@ a {
     text-align: center;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
-    background-color: #000000a1;
+    
+
 }
 
 .logo {
@@ -62,10 +62,16 @@ a {
     line-height: 1.5;
     font-size: 1.1em;
     padding: 0 0px;
-    border-radius: 20px;
+    border-radius: 0px;
     color: #ffffff;
     text-shadow: -1px 1px rgb(0, 0, 0);
-    font-family: "Amarante", serif;
+    font-family: "Oswald", serif;
+    background-color: #000000;
+    border-radius: 40px;
+    border: 1px solid #ffffff; /* Adds a thin white border */
+    padding-top: 10px;
+    padding-bottom: 10px;
+
 }
 
 .links {
@@ -85,11 +91,11 @@ a {
 }
 
 .link {
-    background-color: #ffffff;
+    background-color: #000000;
     padding: 12px 16px;
-    border-radius: 4px;
+    border-radius: 0px;
     text-decoration: none;
-    color: #000000;
+    color: #ffffff;
     font-weight: 500;
     display: grid;
     grid-template-columns: 24px 1fr;
@@ -97,11 +103,15 @@ a {
     gap: 12px;
     transition: all 0.2s ease;
     text-align: left;
+    border: 1px solid #ffffff; /* Adds a thin white border */
+
 }
 
 .link:hover {
-    background-color: #ff0000;
-    color: #ffffff;
+    background-color: #000000;
+    color: #FF0202;
+    border: 1px solid #FF0202;
+
 }
 
 .link i {
