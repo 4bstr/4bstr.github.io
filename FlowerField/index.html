@@ -3,8 +3,89 @@
 <head>
     <title>Flower Field</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <style>
+        .toast {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 8px;
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            animation: fadeIn 0.5s;
+            max-width: 90vw;
+            text-align: center;
+        }
+
+        .toast-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            white-space: normal;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -20px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+    </style>
 </head>
 <body>
     <script src="FlowerFieldGen.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const messages = [
+                {
+                    title: "Lift off! 🚀",
+                    subtitle: "tap/click anywhere"
+                },
+                {
+                    title: "Want fullscreen?",
+                    subtitle: "F11 on PC\n⌘⇧F on Mac"
+                },
+                {
+                    title: "Save your favorite",
+                    subtitle: "Right-click/long press → Save image"
+                }
+            ];
+            let currentMessage = 0;
+            
+            function showToast(message) {
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+                const content = document.createElement('div');
+                content.className = 'toast-content';
+                content.innerHTML = `
+                    <strong>${message.title}</strong>
+                    <small style="opacity: 0.8">${message.subtitle.replace(/\n/g, '<br>')}</small>
+                `;
+                toast.appendChild(content);
+                document.body.appendChild(toast);
+                return toast;
+            }
+
+            let currentToast = showToast(messages[0]);
+            
+            function handleInteraction() {
+                if (currentToast) {
+                    currentToast.remove();
+                }
+                currentMessage++;
+                if (currentMessage < messages.length) {
+                    currentToast = showToast(messages[currentMessage]);
+                } else {
+                    document.removeEventListener('click', handleInteraction);
+                    document.removeEventListener('touchstart', handleInteraction);
+                }
+            }
+
+            document.addEventListener('click', handleInteraction);
+            document.addEventListener('touchstart', handleInteraction);
+        });
+    </script>
 </body>
 </html>

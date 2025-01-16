@@ -9,16 +9,16 @@ function setup() {
 
     let ticking = false;
 
-    window.addEventListener('scroll', function () {
-        if (!ticking) {
-            window.requestAnimationFrame(function () {
-                resizeCanvas(windowWidth, Math.max(windowHeight, document.body.scrollHeight));
-                main();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
+    // window.addEventListener('scroll', function () {
+    //     if (!ticking) {
+    //         window.requestAnimationFrame(function () {
+    //             resizeCanvas(windowWidth, Math.max(windowHeight, document.body.scrollHeight));
+    //             main();
+    //             ticking = false;
+    //         });
+    //         ticking = true;
+    //     }
+    // });
 }
 
 
