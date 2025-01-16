@@ -2,8 +2,9 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100dvh;
-    font-family: system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
+    font-family: "Oswald", serif;
+    font-weight: bold;
 }
 
 
@@ -34,15 +35,13 @@ a {
 .container {
     position: relative;
     z-index: 1;
-    width: 100%;
-    max-width: 360px;
+    max-width: 320px;
     margin: 0 auto;
     padding: 20px 0;
     box-sizing: border-box;
     text-align: center;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
-    
 
 }
 
@@ -58,20 +57,23 @@ a {
 }
 
 .description {
-    margin-bottom: 0px;
     line-height: 1.5;
-    font-size: 1.1em;
-    padding: 0 0px;
     border-radius: 0px;
     color: #ffffff;
     text-shadow: -1px 1px rgb(0, 0, 0);
-    font-family: "Oswald", serif;
     background-color: #000000;
-    border-radius: 40px;
+    border-radius: 20px;
     border: 1px solid #ffffff; /* Adds a thin white border */
     padding-top: 10px;
     padding-bottom: 10px;
+    font-size: 1.1em; /* Adjust the size as needed */
+    width: 100%
+}
 
+/* filepath: /workspaces/4bstr.github.io/style.css */
+.form-container {
+    width: 100%;
+    height: 330px;
 }
 
 .links {
@@ -96,7 +98,6 @@ a {
     border-radius: 0px;
     text-decoration: none;
     color: #ffffff;
-    font-weight: 500;
     display: grid;
     grid-template-columns: 24px 1fr;
     align-items: center;
@@ -115,13 +116,9 @@ a {
 }
 
 .link i {
-    font-size: 1.2em;
     text-align: center;
 }
 
-.link span {
-    font-size: 1em;
-}
 
 .container::-webkit-scrollbar {
     width: 8px;

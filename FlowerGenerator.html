@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flower Field</title>
+    <style>
+        body { display: none; }
+    </style>
+</head>
+<body>
+    <script src="script.js"></script>
+    <script>
+        if (window.location.pathname !== '/FlowerField') {
+            window.location.href = '/';
+        } else {
+            document.body.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

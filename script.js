@@ -5,6 +5,7 @@ function setup() {
     cnv = createCanvas(windowWidth, windowHeight);
     main();
     cnv.style('z-index', '0');
+    window.addEventListener('click', main);
 
     let ticking = false;
 
