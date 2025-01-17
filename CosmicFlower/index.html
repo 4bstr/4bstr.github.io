@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Flower Field</title>
+    <title>Cosmic Flowers</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
     <style>
         .toast {
             position: fixed;
-            top: 20px;
             left: 50%;
+            top: 50%;
             transform: translate(-50%, -50%);
             background-color: rgba(0, 0, 0, 0.8);
             color: white;
@@ -16,7 +16,6 @@
             z-index: 1000;
             font-family: Arial, sans-serif;
             cursor: pointer;
-            animation: fadeIn 0.5s;
             max-width: 90vw;
             text-align: center;
         }
@@ -28,35 +27,56 @@
             white-space: normal;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translate(-50%, -20px); }
-            to { opacity: 1; transform: translate(-50%, 0); }
+        @keyframes toastIn {
+            from { 
+                opacity: 0; 
+                transform: translate(-50%, calc(-50% - 20px));
+            }
+            to { 
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .toast-animate {
+            animation: toastIn 0.5s ease-out forwards;
         }
     </style>
 </head>
 <body>
-    <script src="FlowerFieldGen.js"></script>
+    <script src="CosmicFlowerGen.js"></script>
     <script>
         window.addEventListener('DOMContentLoaded', () => {
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
             const messages = [
                 {
                     title: "Lift off! 🚀",
                     subtitle: "tap/click anywhere"
-                },
-                {
-                    title: "Want fullscreen?",
-                    subtitle: "F11 on PC\n⌘⇧F on Mac"
-                },
-                {
-                    title: "Save your favorite",
-                    subtitle: "Right-click/long press → Save image"
                 }
             ];
+
+            if (!isMobile) {
+                messages.push(
+                    {
+                        title: "Want fullscreen?",
+                        subtitle: "F11 on PC\n⌘⇧F on Mac"
+                    },
+                    {
+                        title: "Save your favorite",
+                        subtitle: "Right-click → Save image"
+                    }
+                );
+            }
+
             let currentMessage = 0;
             
             function showToast(message) {
                 const toast = document.createElement('div');
                 toast.className = 'toast';
+                // Add animation class after a small delay to ensure proper rendering
+                requestAnimationFrame(() => toast.classList.add('toast-animate'));
+                
                 const content = document.createElement('div');
                 content.className = 'toast-content';
                 content.innerHTML = `
@@ -70,7 +90,10 @@
 
             let currentToast = showToast(messages[0]);
             
-            function handleInteraction() {
+            function handleInteraction(e) {
+                // Prevent multiple triggers from the same event
+                e.preventDefault();
+                
                 if (currentToast) {
                     currentToast.remove();
                 }
