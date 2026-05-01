@@ -5,6 +5,7 @@ body {
     overflow-x: hidden;
     font-family: "Oswald", serif;
     font-weight: bold;
+    background: #000000 url("/TBR Background.png") center center / cover no-repeat fixed;
 }
 
 
@@ -16,9 +17,15 @@ canvas {
 }
 
 a {
-    color: #ff0000;
+    color: #33ff002b;
     text-decoration: none; /* This removes the underline */
-    text-shadow: -1px 1px rgb(0, 0, 0);
+    text-shadow: 0 0 12px rgba(51, 255, 0, 0.8);
+}
+
+.highlight {
+    color: #33FF00;
+    text-decoration: none; /* This removes the underline */
+    text-shadow: 0 0 12px rgba(51, 255, 0, 0.8);
 }
 
 .pattern {
@@ -35,7 +42,7 @@ a {
 .container {
     position: relative;
     z-index: 1;
-    max-width: 350px;
+    max-width: 346px;
     margin: 0 auto;
     padding: 20px 0;
     box-sizing: border-box;
@@ -73,7 +80,7 @@ a {
 /* filepath: /workspaces/4bstr.github.io/style.css */
 .form-container {
     width: 100%;
-    height: 290px;
+    height: 310px;
 }
 
 .links {
@@ -110,9 +117,9 @@ a {
 
 .link:hover {
     background-color: #000000;
-    color: #FF0202;
-    border: 1px solid #FF0202;
-
+    color: #33FF00;
+    border: 1px solid #33FF00;
+    box-shadow: 0 0 18px rgba(51, 255, 0, 0.25);
 }
 
 .link i {
